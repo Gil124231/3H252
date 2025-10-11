@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 using namespace std;
 class empleado{
     private:
@@ -26,6 +27,16 @@ int main(int argc, char const *argv[])
     cout<<"Tamaño de byte: "<<sizeof(byte)<<endl;
     cout<<"Tamaño de bool: "<<sizeof(bool)<<endl;
 
+    int* dirA = (int*)malloc(sizeof(int)); //c
+    int* dirB = new int(24);//c++
+    cout<< *dirB<< endl;
+    delete dirB;
+    cout<< *dirB<< endl;
+    *dirA = 24;
+    cout<< *dirA<< endl;
+    free(dirA);
+    cout<< *dirA<< endl;
+    unique_ptr<int> dirC;
     cout<<"Tamaño de puntero: "<<sizeof(int *)<<endl;
     empleado empleados[10]; //2730B
 
